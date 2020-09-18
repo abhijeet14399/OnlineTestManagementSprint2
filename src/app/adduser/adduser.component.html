@@ -1,6 +1,6 @@
 <div class="col-md-6 mx-auto text-primary" *ngIf="userName != null">{{userName | titlecase}}</div>
 <section class="col-md-4 mx-auto">
-  <h2 class="text-center">Add Employee</h2>
+  <h2 class="text-center">Add User</h2>
   <div class="alert alert-success" *ngIf="msg != undefined">{{msg}}</div>
   <div class="alert alert-danger" *ngIf="errorMsg != undefined || errors!= undefined">{{errorMsg}}
     <div *ngFor = "let e of errors">{{e}}</div>
