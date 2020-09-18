@@ -1,0 +1,28 @@
+<div class="col-md-6 mx-auto text-primary" *ngIf="userName != null">{{userName | titlecase}}</div>
+<section class="col-md-4 mx-auto">
+  <h2 class="text-center">Add Employee</h2>
+  <div class="alert alert-success" *ngIf="msg != undefined">{{msg}}</div>
+  <div class="alert alert-danger" *ngIf="errorMsg != undefined || errors!= undefined">{{errorMsg}}
+    <div *ngFor = "let e of errors">{{e}}</div>
+  </div>
+<form #frm="ngForm" (ngSubmit)="addUsr()">
+  <div>User Id</div>
+  <div><input type="text" name="uid" [(ngModel)]="adm.uid" required #mluid="ngModel" class="form-control"/></div>
+  <div class="alert alert-danger" *ngIf="mluid.invalid && mluid.touched">User ID is required</div>
+
+  <div>User Name</div>
+  <div><input type="text" name="uname" [(ngModel)]="adm.uname" required #mluname="ngModel" class="form-control"/></div>
+  <div class="alert alert-danger" *ngIf="mluname.invalid && mluname.touched">User Name is required</div>
+
+  <div>Password</div>
+  <div><input type="password" name="pass" [(ngModel)]="adm.pass" required #mlpass="ngModel" class="form-control"/></div>
+  <div class="alert alert-danger" *ngIf="mlpass.invalid && mlpass.touched">Password is required</div>
+
+  <div>Role</div>
+  <div><input type="text" name="role" [(ngModel)]="adm.role" required #mlrole="ngModel" class="form-control"/></div>
+  <div class="alert alert-danger" *ngIf="mlrole.invalid && mlrole.touched">Role is required</div>
+  
+  <div class="mt-2 text-center"><input type="submit" value="Add Employee" [disabled]="!frm.valid" class="btn btn-danger"/>
+  </div>
+</form>
+</section>
